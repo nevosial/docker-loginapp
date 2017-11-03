@@ -1,7 +1,11 @@
 FROM ubuntu:latest
 MAINTAINER nevosial
 RUN apt-get update
-RUN apt-get install --yes nodejs nodejs-legacy npm
+
+RUN apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_8.x
+RUN apt-get install -y nodejs
+RUN apt-get install -y npm
 RUN apt-get clean
 
 # Import MongoDB public GPG key AND create a MongoDB list file
